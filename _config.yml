@@ -1,0 +1,21 @@
+# Setup
+title: Spangle
+logo: "/public/images/spangle-logo-v2-white.png"
+tagline: "Smart landing page"
+description: "Engineering Blog"
+url: https://blog.spangle.ai
+baseurl: "/"
+paginate: 5
+
+# About and contact
+author:
+  name: "Sina Sohangir"
+  url: https://x.com/sohangir
+
+# Gems
+plugins:
+  - jekyll-paginate
+  - jekyll-gist
+
+# Custom vars
+version: 1.0.0
