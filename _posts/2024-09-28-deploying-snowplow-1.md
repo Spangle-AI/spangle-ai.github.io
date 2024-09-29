@@ -25,3 +25,11 @@ We divide this document to three parts:
 1. [Architecture Overview](#architecture-overview)
 2. [Infrastructure Deployment](#infrastructure)
 3. [Service Deployment](#services)
+
+In the first part we briefly go over the architecture. Explain types of services that we need to deploy for Snowplow to function properly. In the second part, we explain how to deploy the needed infrastructure, such as PubSub topics, subscriptions, the PostGRE databases that is used by Iglu server, etc. And finally in the last part, we explain how to deplow the servcies in kubernetes.
+
+# Architecture Overview
+
+Perhaps it's the easier to start with the reference architecture for Snowplow deployment on GCP. Below is the diagram originally from Snowplow:
+
+![Snowplow Pipline Architecture](/public/images/Snowplow_Pipeline_architecture.png)
