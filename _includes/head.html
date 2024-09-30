@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="{{ 'public/css/poole.css' | absolute_url }}" />
   <link rel="stylesheet" href="{{ 'public/css/syntax.css' | absolute_url }}" />
   <link rel="stylesheet" href="{{ 'public/css/hyde.css' | absolute_url }}" />
+  <link rel="stylesheet" href="{{ 'public/css/style.css' | absolute_url }}" />
   <link
     rel="stylesheet"
     href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface"
@@ -28,4 +29,31 @@
     title="RSS"
     href="{{ '/atom.xml' | absolute_url }}"
   />
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get all links to open the popup
+      const imageLink = document.querySelector('a[href="#popup-image"]');
+      const popup = document.querySelector("#popup-image");
+      const close = document.querySelector(".popup .close");
+
+      // Show the popup when the image link is clicked
+      imageLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        popup.style.display = "block";
+      });
+
+      // Hide the popup when the close button is clicked
+      close.addEventListener("click", function (e) {
+        e.preventDefault();
+        popup.style.display = "none";
+      });
+
+      // Close the popup when clicking outside of the image
+      window.addEventListener("click", function (e) {
+        if (e.target === popup) {
+          popup.style.display = "none";
+        }
+      });
+    });
+  </script>
 </head>

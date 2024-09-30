@@ -32,4 +32,36 @@ In the first part we briefly go over the architecture. Explain types of services
 
 Perhaps it's the easier to start with the reference architecture for Snowplow deployment on GCP. Below is the diagram originally from Snowplow:
 
-![Snowplow Pipline Architecture](/public/images/Snowplow_Pipeline_architecture.png)
+<a href="#popup-image">
+  <img src="/public/images/Snowplow_Pipeline_architecture_nobg.png" alt="Snowplow Pipline Architecture">
+</a>
+
+<div id="popup-image" class="popup">
+  <a href="#" class="close">&times;</a>
+  <img class="popup-content" src="/public/images/Snowplow_Pipeline_architecture.png" alt="Large Image">
+</div>
+
+Based on the diagram, we need to deploy six types of services on our kubernetes cluster:
+
+1. Collector
+2. Enrich
+3. Streamloader
+4. Mutator
+5. Repeater
+6. Iglu
+
+We also need to need six PubSub topics:
+
+1. raw-topic -- called **snowplow-raw** in our implementation
+2. bad-events-topic -- called **snowplow-bad-1**
+   - we connect this subscription directly to GCS via a subsciption called **snowplow-bad-1-gcs**
+
+3. enrich-topic -- called **snowplow-enriched**
+4. new-types-topic -- called **snowplow-bq-loader-server-types**
+5. failed-inserts-topic -- called **snowplow-bq-loader-server-failed-inserts**
+6. bad-rows-topic -- called **snowplow-bq-bad-rows**
+
+In addition we need:
+
+1. Kubernetes ingress (Load Balancer)
+2. PostgreSQL for Iglu Server
