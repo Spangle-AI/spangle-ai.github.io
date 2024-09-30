@@ -301,7 +301,7 @@ resource "google_storage_bucket_iam_member" "admin" {
 
 Next we create service account that is going to be used by all the Snowplow services and we give it all the permissions that these services need. Note that, here we are using one shared service account just for simplicity. Ideally, it's better to create different service accounts for different services and give them exactly the minimum permissions that they need.
 
-Problably the most non-trivial part of this declaration is the last part, **workload_identity_user_binding** where we allow GKE service account `snowplow/snowplow-service-account` i.e. service account `snowplow` in Kubernetes namespace `snowplow-service-account` to bind to `snowplow` service account. In otherwords, we give our kubernetes services the ability to use GKE service account `snowplow/snowplow-service-account` which can then bind to `snowplow` service account we create below on GCP. More on that in Part 3.
+Problably the most non-trivial part of this declaration is the last part, **workload_identity_user_binding** where we allow GKE service account `snowplow/snowplow-service-account` i.e. service account `snowplow-service-account` in Kubernetes namespace `snowplow` to bind to `snowplow` service account in GCP. In other words, we give our kubernetes services the ability to use GKE service account `snowplow/snowplow-service-account` which can then bind to `snowplow` service account we create below on GCP. More on that in Part 3.
 
 ```tf
 # modules/snowplow/service_accounts.tf
