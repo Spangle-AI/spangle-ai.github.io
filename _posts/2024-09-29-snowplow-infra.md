@@ -15,6 +15,7 @@ We go over these resources:
 6. [PubSub topics and subscriptions](#pubsub-topics-and-subscriptions)
 7. [PubSub to GCS Permissions](#pubsub-to-gcs-permissions)
 8. [Service Account and Permissions](#service-account-and-permissions)
+9. [Wrap Up](#wrap-up)
 
 ## Variables
 
@@ -351,6 +352,8 @@ resource "google_service_account_iam_binding" "workload_identity_user_binding" {
   ]
 }
 ```
+
+## Wrap Up
 
 Nice! by now we should have eight files in `modules/snowplow` folder. Feel tree to `terraform plan` and `terraform apply`.
 

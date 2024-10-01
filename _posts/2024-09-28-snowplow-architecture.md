@@ -20,7 +20,7 @@ Therefore, in order to use Snowplow in production, we need to use images that we
 We divide this document to three parts:
 
 1. [Architecture Overview](#architecture-overview)
-2. [Infrastructure Deployment]({% post_url 2024-09-30-snowplow-infra %})
+2. [Infrastructure Deployment]({% post_url 2024-09-29-snowplow-infra %})
 3. [Service Deployment](#services)
 
 In the first part, we will briefly go over the architecture and explain the types of services needed for Snowplow to function properly. In the second part, we will explain how to deploy the required infrastructure, such as PubSub topics, subscriptions, and the PostgreSQL databases used by the Iglu server. Finally, in the last part, we will explain how to deploy the services in Kubernetes.
@@ -40,12 +40,12 @@ Perhaps it's easiest to start with the reference architecture for Snowplow deplo
 
 As it can be seen in the diagram, we need to deploy six types of services on our Kubernetes cluster:
 
-1. Collector
-2. Enrich
-3. Streamloader
-4. Mutator
+1. Iglu
+2. Collector
+3. Enrich
+4. Streamloader
 5. Repeater
-6. Iglu
+6. Mutator
 
 We also need to create six PubSub topics:
 
@@ -82,4 +82,4 @@ In addition, we need:
 5. Fixed IP address for tracker
 6. BigQuery dataset to hold the events table
 
-In part 2 and part 3 we will overview how to create each of the resources mentioned above.
+In [part 2]({% post_url 2024-09-29-snowplow-infra %}) and [part 3]({% post_url 2024-09-30-snowplow-cluster %}) we will overview how to create each of the resources mentioned above.
