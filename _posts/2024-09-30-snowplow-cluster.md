@@ -636,7 +636,7 @@ spec:
       serviceAccountName: snowplow-service-account
       containers:
         - name: enrich-server
-          image: gcr.io/spangle-one/snowplow-enrich-pubsub:3.9.0
+          image: snowplow/snowplow-enrich-pubsub:3.9.0
           command:
             - "/home/snowplow/bin/snowplow-enrich-pubsub"
             - "--config"
@@ -820,7 +820,7 @@ spec:
       serviceAccountName: snowplow-service-account
       containers:
         - name: streamloader-server
-          image: gcr.io/spangle-one/snowplow-bigquery-streamloader:1.7.1
+          image: snowplow/snowplow-bigquery-streamloader:1.7.1
           command:
             - "/home/snowplow/bin/snowplow-bigquery-streamloader"
             - "--config"
@@ -878,7 +878,7 @@ spec:
       serviceAccountName: snowplow-service-account
       containers:
         - name: repeater-server
-          image: gcr.io/spangle-one/snowplow-bigquery-repeater:1.7.1
+          image: snowplow/snowplow-bigquery-repeater:1.7.1
           command:
             - "/home/snowplow/bin/snowplow-bigquery-repeater"
             - "--config"
@@ -939,7 +939,7 @@ spec:
       serviceAccountName: snowplow-service-account
       containers:
         - name: mutator-server
-          image: gcr.io/spangle-one/snowplow-bigquery-mutator:1.7.1
+          image: snowplow/snowplow-bigquery-mutator:1.7.1
           command:
             - "/home/snowplow/bin/snowplow-bigquery-mutator"
             - "listen"
