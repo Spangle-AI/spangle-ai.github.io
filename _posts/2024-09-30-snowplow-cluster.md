@@ -553,17 +553,17 @@ data:
       },
       "input": {
         "type": "PubSub",
-        "subscription": "projects/spangle-one/subscriptions/snowplow-raw"
+        "subscription": "projects/<GCP-PROJECT>/subscriptions/snowplow-raw"
       },
       "output": {
         "good": {
           "type": "PubSub",
-          "topic": "projects/spangle-one/topics/snowplow-enriched",
+          "topic": "projects/<GCP-PROJECT>/topics/snowplow-enriched",
           "attributes": [ "app_id", "event_name" ]
         },
         "bad": {
           "type": "PubSub",
-          "topic": "projects/spangle-one/topics/snowplow-bad-1"
+          "topic": "projects/<GCP-PROJECT>/topics/snowplow-bad-1"
         }
       },
       "assetsUpdatePeriod": "10080 minutes"
@@ -1025,8 +1025,8 @@ spec:
 
 Finally we need to create the endpoint to receive incoming tracking calls and pass them to the collector service. In the following, you need to:
 
-1. Replace `<TRACKER.DOMAIN>` with the tracker's domain name. Something like `tracker.spangle.ai`.
-2. Replace the name of the managed certificate from `tracker-domain-certificate` to something more sensible, something like `tracker-spangle-ai`.
+1. Replace `<TRACKER.DOMAIN>` with the tracker's domain name. Something like `tracker.example.com`.
+2. Replace the name of the managed certificate from `tracker-domain-certificate` to something more sensible, something like `tracker-example-com`.
 
 ```yaml
 # snowplow/endpoint.yaml
