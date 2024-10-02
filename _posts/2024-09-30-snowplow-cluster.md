@@ -987,7 +987,7 @@ spec:
   serviceAccountName: snowplow-service-account
   containers:
     - name: mutator-init-server
-      image: gcr.io/spangle-one/snowplow-bigquery-mutator:1.7.1
+      image: snowplow/snowplow-bigquery-mutator:1.7.1
       command:
         - "/home/snowplow/bin/snowplow-bigquery-mutator"
         - "create"
